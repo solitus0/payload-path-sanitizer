@@ -1,0 +1,36 @@
+{
+    "name": "solitus0/payload-path-sanitizer",
+    "description": "Stand-alone recursive payload sanitizer with matcher-based targeting and pluggable value sanitizers.",
+    "keywords": [
+        "payload",
+        "sanitizer",
+        "masking"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1"
+    },
+    "authors": [
+        {
+            "name": "Ernestas Pilsudskis",
+            "email": "ernestas.pilsudskis@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Solitus0\\PayloadSanitizer\\": "src/",
+            "Tests\\Solitus0\\PayloadSanitizer\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require-dev": {
+        "symplify/easy-coding-standard": "13",
+        "phpunit/phpunit": "^12.5",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "spaze/phpstan-disallowed-calls": "^4.7"
+    }
+}
