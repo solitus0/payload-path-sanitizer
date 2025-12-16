@@ -12,11 +12,12 @@ final class SanitizerContext implements \IteratorAggregate
     /** @var Rule[] */
     private array $rules = [];
 
-    public function __construct(Rule ...$rules)
+    /**
+     * @param Rule|Rule[] ...$rules
+     */
+    public function __construct(Rule|array ...$rules)
     {
-        foreach ($rules as $rule) {
-            $this->add($rule);
-        }
+        $this->appendRules($rules);
     }
 
     public function addRule(SanitizerMatcherInterface $matcher, ValueSanitizerInterface $valueSanitizer): self
@@ -34,5 +35,21 @@ final class SanitizerContext implements \IteratorAggregate
     public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->rules);
+    }
+
+    /**
+     * @param array<int, Rule|Rule[]> $rules
+     */
+    private function appendRules(array $rules): void
+    {
+        foreach ($rules as $rule) {
+            if (\is_array($rule)) {
+                $this->appendRules($rule);
+
+                continue;
+            }
+
+            $this->add($rule);
+        }
     }
 }

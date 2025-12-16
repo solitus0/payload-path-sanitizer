@@ -49,6 +49,16 @@ final class SanitizerContextTest extends TestCase
         self::assertSame([$ruleA, $ruleB], iterator_to_array($collection));
     }
 
+    public function testConstructorAcceptsPlainRuleArray(): void
+    {
+        $ruleA = $this->createRule();
+        $ruleB = $this->createRule();
+
+        $collection = new SanitizerContext([$ruleA, $ruleB]);
+
+        self::assertSame([$ruleA, $ruleB], iterator_to_array($collection));
+    }
+
     private function createRule(): Rule
     {
         $matcher = $this->createMock(SanitizerMatcherInterface::class);
