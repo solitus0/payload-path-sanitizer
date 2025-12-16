@@ -15,6 +15,10 @@ final class Sanitizer
         );
 
         foreach ($recursiveIteratorIterator as $key => $value) {
+            if (empty($value)) {
+                continue;
+            }
+
             $depth = $recursiveIteratorIterator->getDepth();
             $path = [];
             for ($d = 0; $d <= $depth; ++$d) {
