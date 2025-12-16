@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Solitus0\PayloadSanitizer\ValueSanitizer;
 
-readonly class SimpleValueSanitizer implements ValueSanitizerInterface
+final class SimpleValueSanitizer implements ValueSanitizerInterface
 {
     public function sanitize($value): string
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Solitus0\PayloadSanitizer\Matcher;
 
-readonly class ParentKeyMatcher implements SanitizerMatcherInterface
+class ParentKeyMatcher implements SanitizerMatcherInterface
 {
     public function __construct(
         private string $parentKey
